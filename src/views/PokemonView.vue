@@ -52,29 +52,52 @@
   p {
     font-weight: bold;
   }
-  .container {
+
+  .card {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    margin-top: 100px;
+  }
+
+  table {
+    text-align: start;
   }
 </style>
 
 <template>
-  <h1>Pokemon</h1>
   <div class="container">
     <div v-if="loading" class="loading">Loading...</div>
 
     <div v-if="error" class="error">{{ error }}</div>
 
-    <div v-if="data" class="content">
-      <PokemonCard :name="data.name" :url="data.sprites.front_default" />
-      <!-- <img
-        :src="data.sprites.front_default"
-        style="width: 10rem; height: 10rem"
+    <div v-if="data">
+      <PokemonCard
+        :name="data.name"
+        :url="data.sprites.front_default"
+        class="card"
       />
-      <h2>{{ data.name }}</h2>
-      <p>{{ data.body }}</p> -->
+      <div class="content">
+        <h1>STATS</h1>
+
+        <table>
+          <tr>
+            <th>Stat</th>
+            <th>Value</th>
+            <th>Abilities</th>
+          </tr>
+          <tr :key="i" v-for="(stat, i) in data.stats">
+            <td>{{ stat.stat.name }}</td>
+            <td>{{ stat.base_stat }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </template>

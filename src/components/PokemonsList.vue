@@ -45,6 +45,7 @@
   }
   .center {
     text-align: center;
+    margin-top: 100px;
   }
   .card:hover {
     cursor: pointer;

@@ -9,13 +9,8 @@
   }
 </script>
 
-<style scoped>
-  h1 {
-    text-align: center;
-  }
-</style>
+<style scoped></style>
 
 <template>
-  <h1>Pokemons</h1>
   <PokemonsList />
 </template>
