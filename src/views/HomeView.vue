@@ -3,7 +3,10 @@
 
   export default {
     props: {
-      msg: String
+      msg: {
+        default: 'message',
+        type: String
+      }
     },
     components: { PokemonsList }
   }
@@ -11,6 +14,4 @@
 
 <style scoped></style>
 
-<template>
-  <PokemonsList />
-</template>
+<template><PokemonsList /></template>

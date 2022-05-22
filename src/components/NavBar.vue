@@ -8,6 +8,10 @@
     methods: {
       onSearchNavigate(value) {
         this.$router.push('/pokemon/' + value)
+      },
+      test() {
+        this.$store.commit('setSearchTerm', this.localSearchTerm)
+        this.onSearchNavigate(this.localSearchTerm)
       }
     },
     computed: {
@@ -41,10 +45,7 @@
           aria-label="Search"
         />
         <button
-          @click.prevent="
-            $store.commit('setSearchTerm', localSearchTerm),
-              onSearchNavigate(localSearchTerm)
-          "
+          @click.prevent="test"
           class="btn btn-outline-success"
           type="submit"
         >
